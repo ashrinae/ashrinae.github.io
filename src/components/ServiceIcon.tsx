@@ -53,7 +53,32 @@ const ServiceIcon: React.FC<ServiceIconProps> = ({ type, className = "" }) => {
   };
 
   return (
-    <div className={`service-icon ${getIconStyles()} ${className} p-4 shadow-md transition-all duration-300 hover:shadow-lg`}>
+    <div 
+      className={`
+        service-icon 
+        ${getIconStyles()} 
+        ${className} 
+        p-4 
+        shadow-md 
+        transition-all 
+        duration-300 
+        hover:shadow-lg 
+        relative
+        after:content-[''] 
+        after:absolute 
+        after:inset-0 
+        after:border-2 
+        after:border-gray-600 
+        after:rounded-full 
+        after:opacity-60
+        after:[clip-path:polygon(
+          50%_0%,60%_1%,70%_3%,79%_6%,87%_10%,93%_16%,97%_23%,99%_31%,
+          100%_40%,99%_50%,97%_60%,93%_69%,87%_77%,79%_84%,70%_90%,
+          60%_94%,50%_95%,40%_94%,30%_90%,21%_84%,13%_77%,7%_69%,
+          3%_60%,1%_50%,0%_40%,1%_31%,3%_23%,7%_16%,13%_10%,21%_6%,30%_3%,40%_1%
+        )]
+      `}
+    >
       {getIcon()}
     </div>
   );
