@@ -13,7 +13,7 @@ const Bio: React.FC = () => {
       <div className="animate-slide-up opacity-0" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
         <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-gray-200">
           <img 
-            src="/lovable-uploads/648ed457-8a09-421b-a29c-fbc873681d7c.png" 
+            src="/lovable-uploads/2309f6c4-a4ee-45a1-98c4-f36dc58f9d8a.png" 
             alt="Ash avatar"
             className="w-full h-full object-cover"
           />
