@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Bio: React.FC = () => {
   return (
@@ -11,12 +12,17 @@ const Bio: React.FC = () => {
         </p>
       </div>
       <div className="animate-slide-up opacity-0" style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}>
-        <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-gray-200">
-          <img 
-            src="/lovable-uploads/2309f6c4-a4ee-45a1-98c4-f36dc58f9d8a.png" 
-            alt="Ash avatar"
-            className="w-full h-full object-cover"
-          />
+        <div className="w-28 h-28 relative">
+          <Avatar className="w-28 h-28 border-2 border-purple-700 shadow-lg">
+            <AvatarImage src="/lovable-uploads/2309f6c4-a4ee-45a1-98c4-f36dc58f9d8a.png" alt="Ash avatar" />
+            <AvatarFallback className="bg-gradient-to-br from-purple-100 to-purple-300 text-purple-800 text-xl font-bold">
+              A
+            </AvatarFallback>
+          </Avatar>
+          <div className="absolute -top-2 -right-2 w-10 h-10 rounded-full bg-green-100 border-2 border-purple-700 flex items-center justify-center">
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-purple-700"></div>
+          </div>
+          <div className="absolute -bottom-1 -left-3 w-8 h-8 rounded-full bg-blue-100 border-2 border-purple-700"></div>
         </div>
       </div>
     </section>
