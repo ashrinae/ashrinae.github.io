@@ -5,11 +5,13 @@ import Services from '@/components/Services';
 import Bio from '@/components/Bio';
 import Footer from '@/components/Footer';
 import CTAButton from '@/components/CTAButton';
+import BikeWheelBackground from '@/components/BikeWheelBackground';
 
 const Index: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="px-4 md:px-0 max-w-screen-xl mx-auto">
+    <div className="min-h-screen bg-white relative">
+      <BikeWheelBackground />
+      <div className="px-4 md:px-0 max-w-screen-xl mx-auto relative z-10">
         <Header />
         
         {/* Mobile CTA Button */}
