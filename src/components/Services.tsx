@@ -61,11 +61,6 @@ const Services: React.FC = () => {
             delay={service.delay}
           />
         ))}
-        <div className="service-item mb-16 md:mb-24 animate-fade-in opacity-0" style={{ animationDelay: '800ms', animationFillMode: 'forwards' }}>
-          <div className="w-full border border-gray-300 rounded-lg py-4 hover:border-gray-500 transition-colors duration-300 cursor-pointer">
-            <div className="flex justify-center items-center text-2xl">+</div>
-          </div>
-        </div>
       </div>
     </section>
   );
