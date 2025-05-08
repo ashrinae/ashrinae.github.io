@@ -9,20 +9,12 @@ import BikeWheelBackground from '@/components/BikeWheelBackground';
 import SocialShareImage from '@/components/SocialShareImage';
 
 const Index: React.FC = () => {
-  const [showImageGenerator, setShowImageGenerator] = useState(true);
-  
-  useEffect(() => {
-    // Remove the image generator after it has generated the image
-    const timer = setTimeout(() => {
-      setShowImageGenerator(false);
-    }, 2000);
-    
-    return () => clearTimeout(timer);
-  }, []);
+  // Removed the image generator timeout since we're not actually saving the file
+  // We'll just include the component for documentation purposes
   
   return (
     <div className="min-h-screen bg-white relative">
-      {showImageGenerator && <SocialShareImage />}
+      <SocialShareImage />
       <BikeWheelBackground />
       <div className="px-4 md:px-0 max-w-screen-xl mx-auto relative z-10">
         <Header />
