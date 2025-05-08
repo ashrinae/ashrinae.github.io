@@ -15,42 +15,42 @@ const SocialShareImage: React.FC = () => {
     canvas.width = 1200;
     canvas.height = 630;
     
-    // Lighter background gradient
+    // Background with gradient matching the site theme
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#f1f0fb');  // Light lavender tone
+    gradient.addColorStop(0, '#f1f0fb');  // Light purple tone matching site
     gradient.addColorStop(1, '#e5deff');  // Soft purple-ish white
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Draw bicycle wheel with more transparent elements
+    // Draw bicycle wheel matching the site background
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const wheelRadius = 220;
     
-    // Draw wheel rim - more transparent
+    // Draw wheel rim
     ctx.beginPath();
     ctx.arc(centerX, centerY, wheelRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(110, 89, 165, 0.2)';  // Increased transparency
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.2)';
     ctx.lineWidth = 5;
     ctx.stroke();
     
-    // Draw inner rim - more transparent
+    // Draw inner rim
     ctx.beginPath();
     ctx.arc(centerX, centerY, wheelRadius - 15, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(110, 89, 165, 0.15)';  // Increased transparency
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.15)';
     ctx.lineWidth = 2;
     ctx.stroke();
     
-    // Draw hub - more transparent
+    // Draw hub
     ctx.beginPath();
     ctx.arc(centerX, centerY, 30, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(110, 89, 165, 0.2)';  // Increased transparency
+    ctx.fillStyle = 'rgba(110, 89, 165, 0.2)';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(110, 89, 165, 0.25)';  // Increased transparency
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.25)';
     ctx.lineWidth = 3;
     ctx.stroke();
     
-    // Draw exactly 7 spokes
+    // Draw exactly 7 spokes to match "seven spoke" name
     const spokeCount = 7;
     for (let i = 0; i < spokeCount; i++) {
       const angle = (i / spokeCount) * Math.PI * 2;
@@ -62,22 +62,50 @@ const SocialShareImage: React.FC = () => {
       ctx.beginPath();
       ctx.moveTo(innerX, innerY);
       ctx.lineTo(outerX, outerY);
-      ctx.strokeStyle = 'rgba(110, 89, 165, 0.18)'; // More transparent spokes
-      ctx.lineWidth = 2; // Slightly thicker to be visible despite transparency
+      ctx.strokeStyle = 'rgba(110, 89, 165, 0.18)';
+      ctx.lineWidth = 2;
       ctx.stroke();
     }
     
-    // Draw text in black and remove subheaders
-    ctx.fillStyle = '#000000'; // Changed to black
+    // Add site title
+    ctx.fillStyle = '#000000';
     ctx.font = 'bold 80px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('seven spoke', canvas.width / 2, canvas.height / 2 + 20); // Centered vertically
+    ctx.fillText('seven spoke', centerX, centerY - 50);
     
-    // Log that the image is ready but don't trigger download
+    // Add tagline matching the site
+    ctx.fillStyle = '#6E59A5';
+    ctx.font = 'normal 28px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('life sciences sales & marketing', centerX, centerY + 20);
+    ctx.fillText('technology consultant', centerX, centerY + 60);
+    
+    // Create a blob URL for the image
+    const dataUrl = canvas.toDataURL('image/png');
+    
+    // Update the meta tags
+    updateMetaTags(dataUrl);
+    
     console.log('Social share image generated successfully');
-    
-    // Remove the blob creation and download functionality
   }, []);
+  
+  // Function to update meta tags with the new image URL
+  const updateMetaTags = (imageUrl: string) => {
+    // This will only work if the component is mounted in a browser environment
+    if (typeof document !== 'undefined') {
+      // Update Open Graph meta tags
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      if (ogImage) {
+        ogImage.setAttribute('content', imageUrl);
+      }
+      
+      // Update Twitter meta tags
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      if (twitterImage) {
+        twitterImage.setAttribute('content', imageUrl);
+      }
+    }
+  };
   
   return (
     <div className="hidden">
