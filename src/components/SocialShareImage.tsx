@@ -22,36 +22,36 @@ const SocialShareImage: React.FC = () => {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Draw bicycle wheel with transparent elements
+    // Draw bicycle wheel with more transparent elements
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
     const wheelRadius = 220;
     
-    // Draw wheel rim
+    // Draw wheel rim - more transparent
     ctx.beginPath();
     ctx.arc(centerX, centerY, wheelRadius, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(110, 89, 165, 0.3)';  // Very transparent purple
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.2)';  // Increased transparency
     ctx.lineWidth = 5;
     ctx.stroke();
     
-    // Draw inner rim
+    // Draw inner rim - more transparent
     ctx.beginPath();
     ctx.arc(centerX, centerY, wheelRadius - 15, 0, Math.PI * 2);
-    ctx.strokeStyle = 'rgba(110, 89, 165, 0.2)';  // More transparent
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.15)';  // Increased transparency
     ctx.lineWidth = 2;
     ctx.stroke();
     
-    // Draw hub
+    // Draw hub - more transparent
     ctx.beginPath();
     ctx.arc(centerX, centerY, 30, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(110, 89, 165, 0.3)';
+    ctx.fillStyle = 'rgba(110, 89, 165, 0.2)';  // Increased transparency
     ctx.fill();
-    ctx.strokeStyle = 'rgba(110, 89, 165, 0.4)';
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.25)';  // Increased transparency
     ctx.lineWidth = 3;
     ctx.stroke();
     
-    // Draw spokes
-    const spokeCount = 24;
+    // Draw exactly 7 spokes
+    const spokeCount = 7;
     for (let i = 0; i < spokeCount; i++) {
       const angle = (i / spokeCount) * Math.PI * 2;
       const innerX = centerX + Math.cos(angle) * 30;
@@ -62,8 +62,8 @@ const SocialShareImage: React.FC = () => {
       ctx.beginPath();
       ctx.moveTo(innerX, innerY);
       ctx.lineTo(outerX, outerY);
-      ctx.strokeStyle = 'rgba(110, 89, 165, 0.25)'; // Very transparent spokes
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = 'rgba(110, 89, 165, 0.18)'; // More transparent spokes
+      ctx.lineWidth = 2; // Slightly thicker to be visible despite transparency
       ctx.stroke();
     }
     
