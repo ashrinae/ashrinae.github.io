@@ -67,16 +67,11 @@ const SocialShareImage: React.FC = () => {
       ctx.stroke();
     }
     
-    // Draw text
-    ctx.fillStyle = 'rgba(68, 51, 122, 0.85)';  // Darker purple but semi-transparent
+    // Draw text in black and remove subheaders
+    ctx.fillStyle = '#000000'; // Changed to black
     ctx.font = 'bold 80px sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('seven spoke', canvas.width / 2, canvas.height / 2 - 80);
-    
-    ctx.fillStyle = 'rgba(68, 51, 122, 0.7)';  // Slightly more transparent
-    ctx.font = '36px sans-serif';
-    ctx.fillText('life sciences sales & marketing', canvas.width / 2, canvas.height / 2 + 120);
-    ctx.fillText('technology consultant', canvas.width / 2, canvas.height / 2 + 170);
+    ctx.fillText('seven spoke', canvas.width / 2, canvas.height / 2 + 20); // Centered vertically
     
     // Export the canvas as an image
     const imageData = canvas.toDataURL('image/png');
