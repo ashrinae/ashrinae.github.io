@@ -15,51 +15,65 @@ const SocialShareImage: React.FC = () => {
     canvas.width = 1200;
     canvas.height = 630;
     
-    // Background gradient
+    // Lighter background gradient
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-    gradient.addColorStop(0, '#1A1F2C');
-    gradient.addColorStop(1, '#6E59A5');
+    gradient.addColorStop(0, '#f1f0fb');  // Light lavender tone
+    gradient.addColorStop(1, '#e5deff');  // Soft purple-ish white
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Create circular elements (like spokes)
-    for (let i = 0; i < 7; i++) {
-      const angle = (i / 7) * Math.PI * 2;
-      const radius = 180;
-      const x = canvas.width / 2 + Math.cos(angle) * radius;
-      const y = canvas.height / 2 + Math.sin(angle) * radius;
-      
-      // Draw spoke
-      ctx.beginPath();
-      ctx.moveTo(canvas.width / 2, canvas.height / 2);
-      ctx.lineTo(x, y);
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)';
-      ctx.stroke();
-      
-      // Draw circle at end of spoke
-      ctx.beginPath();
-      ctx.arc(x, y, 25, 0, Math.PI * 2);
-      ctx.fillStyle = '#9b87f5';
-      ctx.fill();
-    }
+    // Draw bicycle wheel with transparent elements
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const wheelRadius = 220;
     
-    // Central circle
+    // Draw wheel rim
     ctx.beginPath();
-    ctx.arc(canvas.width / 2, canvas.height / 2, 60, 0, Math.PI * 2);
-    ctx.fillStyle = '#D6BCFA';
-    ctx.fill();
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 4;
+    ctx.arc(centerX, centerY, wheelRadius, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.3)';  // Very transparent purple
+    ctx.lineWidth = 5;
     ctx.stroke();
     
+    // Draw inner rim
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, wheelRadius - 15, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.2)';  // More transparent
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    
+    // Draw hub
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 30, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(110, 89, 165, 0.3)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(110, 89, 165, 0.4)';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    
+    // Draw spokes
+    const spokeCount = 24;
+    for (let i = 0; i < spokeCount; i++) {
+      const angle = (i / spokeCount) * Math.PI * 2;
+      const innerX = centerX + Math.cos(angle) * 30;
+      const innerY = centerY + Math.sin(angle) * 30;
+      const outerX = centerX + Math.cos(angle) * wheelRadius;
+      const outerY = centerY + Math.sin(angle) * wheelRadius;
+      
+      ctx.beginPath();
+      ctx.moveTo(innerX, innerY);
+      ctx.lineTo(outerX, outerY);
+      ctx.strokeStyle = 'rgba(110, 89, 165, 0.25)'; // Very transparent spokes
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+    
     // Draw text
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = 'rgba(68, 51, 122, 0.85)';  // Darker purple but semi-transparent
     ctx.font = 'bold 80px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('seven spoke', canvas.width / 2, canvas.height / 2 - 80);
     
-    ctx.fillStyle = '#E5DEFF';
+    ctx.fillStyle = 'rgba(68, 51, 122, 0.7)';  // Slightly more transparent
     ctx.font = '36px sans-serif';
     ctx.fillText('life sciences sales & marketing', canvas.width / 2, canvas.height / 2 + 120);
     ctx.fillText('technology consultant', canvas.width / 2, canvas.height / 2 + 170);
