@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import Services from '@/components/Services';
 import Bio from '@/components/Bio';
@@ -9,9 +9,6 @@ import BikeWheelBackground from '@/components/BikeWheelBackground';
 import SocialShareImage from '@/components/SocialShareImage';
 
 const Index: React.FC = () => {
-  // Removed the image generator timeout since we're not actually saving the file
-  // We'll just include the component for documentation purposes
-  
   return (
     <div className="min-h-screen bg-white relative">
       <SocialShareImage />
