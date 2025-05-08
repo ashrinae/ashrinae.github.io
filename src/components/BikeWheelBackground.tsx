@@ -16,9 +16,9 @@ const BikeWheelBackground: React.FC = () => {
           {/* Hub */}
           <circle cx="400" cy="400" r="30" stroke="#000000" strokeWidth="6" />
           
-          {/* Spokes */}
-          {[...Array(24)].map((_, i) => {
-            const angle = (i * 15) * Math.PI / 180;
+          {/* Spokes - Changed from 24 to 7 spokes */}
+          {[...Array(7)].map((_, i) => {
+            const angle = (i * (360/7)) * Math.PI / 180;
             const x1 = 400 + 30 * Math.cos(angle);
             const y1 = 400 + 30 * Math.sin(angle);
             const x2 = 400 + 390 * Math.cos(angle);
