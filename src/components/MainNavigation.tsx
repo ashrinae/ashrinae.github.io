@@ -17,7 +17,12 @@ const MainNavigation: React.FC = () => {
     <NavigationMenu className="mt-3">
       <NavigationMenuList className="gap-2">
         <NavigationMenuItem>
-          <a href="#resume" className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}>
+          <a 
+            href="https://resume.sevenspoke.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}
+          >
             <FileText className="h-4 w-4" />
             <span>Resume</span>
           </a>
