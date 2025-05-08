@@ -23,7 +23,12 @@ const MainNavigation: React.FC = () => {
           </a>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="#opinion-pieces" className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}>
+          <a 
+            href="https://sevenspoke.com/2025/05/06/salestechreviewmay2025/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}
+          >
             <BookOpen className="h-4 w-4" />
             <span>Opinion Pieces</span>
           </a>
