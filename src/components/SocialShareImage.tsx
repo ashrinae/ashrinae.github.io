@@ -80,22 +80,8 @@ const SocialShareImage: React.FC = () => {
     ctx.fillText('life sciences sales & marketing', centerX, centerY + 20);
     ctx.fillText('technology consultant', centerX, centerY + 60);
     
-    // Export the image for debugging
-    try {
-      const dataUrl = canvas.toDataURL('image/png');
-      
-      // For debugging: create a link to download the image
-      if (process.env.NODE_ENV === 'development') {
-        const link = document.createElement('a');
-        link.download = 'social-share-image.png';
-        link.href = dataUrl;
-        link.click();
-      }
-      
-      console.log('Social share image generated successfully');
-    } catch (error) {
-      console.error('Error generating social image:', error);
-    }
+    // Log success message without downloading
+    console.log('Social share image generated successfully');
   }, []);
   
   return (
