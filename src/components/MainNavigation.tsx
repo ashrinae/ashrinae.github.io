@@ -34,7 +34,12 @@ const MainNavigation: React.FC = () => {
           </a>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a href="#playground" className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}>
+          <a 
+            href="https://snark.sevenspoke.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}
+          >
             <Play className="h-4 w-4" />
             <span>Playground</span>
           </a>
