@@ -80,32 +80,23 @@ const SocialShareImage: React.FC = () => {
     ctx.fillText('life sciences sales & marketing', centerX, centerY + 20);
     ctx.fillText('technology consultant', centerX, centerY + 60);
     
-    // Create a blob URL for the image
-    const dataUrl = canvas.toDataURL('image/png');
-    
-    // Update the meta tags
-    updateMetaTags(dataUrl);
-    
-    console.log('Social share image generated successfully');
-  }, []);
-  
-  // Function to update meta tags with the new image URL
-  const updateMetaTags = (imageUrl: string) => {
-    // This will only work if the component is mounted in a browser environment
-    if (typeof document !== 'undefined') {
-      // Update Open Graph meta tags
-      const ogImage = document.querySelector('meta[property="og:image"]');
-      if (ogImage) {
-        ogImage.setAttribute('content', imageUrl);
+    // Export the image for debugging
+    try {
+      const dataUrl = canvas.toDataURL('image/png');
+      
+      // For debugging: create a link to download the image
+      if (process.env.NODE_ENV === 'development') {
+        const link = document.createElement('a');
+        link.download = 'social-share-image.png';
+        link.href = dataUrl;
+        link.click();
       }
       
-      // Update Twitter meta tags
-      const twitterImage = document.querySelector('meta[name="twitter:image"]');
-      if (twitterImage) {
-        twitterImage.setAttribute('content', imageUrl);
-      }
+      console.log('Social share image generated successfully');
+    } catch (error) {
+      console.error('Error generating social image:', error);
     }
-  };
+  }, []);
   
   return (
     <div className="hidden">
