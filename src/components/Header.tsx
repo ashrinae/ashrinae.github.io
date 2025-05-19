@@ -2,6 +2,8 @@
 import React from 'react';
 import CTAButton from './CTAButton';
 import MainNavigation from './MainNavigation';
+import { BookOpen } from 'lucide-react';
+import { Button } from './ui/button';
 
 const Header: React.FC = () => {
   return (
@@ -16,14 +18,38 @@ const Header: React.FC = () => {
           </p>
         </div>
         <div className="hidden md:flex flex-col items-end">
-          <CTAButton />
+          <div className="flex space-x-3">
+            <a 
+              href="https://www.buymeacoffee.com/sevenspoke" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-yellow-400 text-black hover:bg-yellow-300 transition-colors duration-300 rounded-full px-6 py-3 flex items-center gap-2">
+                <BookOpen className="h-4 w-4" />
+                buy me a book
+              </Button>
+            </a>
+            <CTAButton />
+          </div>
           <MainNavigation />
         </div>
       </div>
       
       {/* Mobile CTA Button and Navigation */}
       <div className="mt-6 flex flex-col items-center gap-2 md:hidden">
-        <CTAButton />
+        <div className="flex flex-wrap justify-center gap-3">
+          <a 
+            href="https://www.buymeacoffee.com/sevenspoke" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-yellow-400 text-black hover:bg-yellow-300 transition-colors duration-300 rounded-full px-6 py-3 flex items-center gap-2">
+              <BookOpen className="h-4 w-4" />
+              buy me a book
+            </Button>
+          </a>
+          <CTAButton />
+        </div>
         <MainNavigation />
       </div>
     </header>
