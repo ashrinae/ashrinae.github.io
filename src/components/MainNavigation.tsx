@@ -28,15 +28,50 @@ const MainNavigation: React.FC = () => {
           </a>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <a 
-            href="https://sevenspoke.com/2025/05/06/salestechreviewmay2025/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className={cn(navigationMenuTriggerStyle(), "flex gap-2 items-center")}
-          >
+          <NavigationMenuTrigger className="flex gap-2 items-center">
             <BookOpen className="h-4 w-4" />
             <span>Opinion Pieces</span>
-          </a>
+          </NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4">
+              <li>
+                <NavigationMenuLink asChild>
+                  <a
+                    href="https://www.linkedin.com/pulse/rant-from-marketing-pro-sales-engagement-platforms-ash-pedersen-dlxwc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium">Rant: Sales Engagement</div>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a
+                    href="https://www.linkedin.com/pulse/people-management-vs-ic-growth-marketing-we-forcing-wrong-pedersen-bepdc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium">People Management vs. IC Growth</div>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a
+                    href="https://www.linkedin.com/pulse/life-sciences-buyers-arent-unicorns-mermaids-matter-much-ash-pedersen-q1dlc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium">Life Sciences Buyers Aren't Mermaids</div>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+            </ul>
+          </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="flex gap-2 items-center">
@@ -44,7 +79,7 @@ const MainNavigation: React.FC = () => {
             <span>Playground</span>
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[200px] gap-3 p-4">
+            <ul className="grid w-[260px] gap-3 p-4">
               <li>
                 <NavigationMenuLink asChild>
                   <a
@@ -66,6 +101,30 @@ const MainNavigation: React.FC = () => {
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium">Professional Burn Machine</div>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a
+                    href="https://gannt.sevenspoke.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium">Gantt Chart Creator</div>
+                  </a>
+                </NavigationMenuLink>
+              </li>
+              <li>
+                <NavigationMenuLink asChild>
+                  <a
+                    href="https://debate.sevenspoke.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium">Devil's Advocate Machine</div>
                   </a>
                 </NavigationMenuLink>
               </li>
